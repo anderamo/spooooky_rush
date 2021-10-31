@@ -6,12 +6,13 @@
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 20:21:40 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/10/31 20:54:39 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/10/31 22:20:13 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/spooooky_lib.h"
 
+//Free all mallocs
 int	ft_free_all(t_map *map_v, int i)
 {
 	if (i == 1 || i == 2)

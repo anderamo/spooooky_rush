@@ -6,12 +6,13 @@
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 17:35:34 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/10/31 20:17:54 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/10/31 22:09:26 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/spooooky_lib.h"
 
+//Here we check logic basic combinations that are imposible 
 int	ft_hand_errors(t_map *map_v)
 {
 	int	i;

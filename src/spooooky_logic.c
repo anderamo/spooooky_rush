@@ -6,12 +6,13 @@
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 18:26:53 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/10/31 20:12:15 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/10/31 22:15:34 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/spooooky_lib.h"
 
+//Here we iterate through all posible maps and send them to checker
 int	ft_paste(t_map	*map_v, char *paste, int i, int j)
 {
 	int	k;

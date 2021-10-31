@@ -6,12 +6,13 @@
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 19:56:00 by cdiaz-fl          #+#    #+#             */
-/*   Updated: 2021/10/31 20:11:00 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/10/31 22:10:53 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/spooooky_lib.h"
 
+//These functions check (as a human would do) if the map is correct
 int	ft_check_rows_left(t_map *map_v)
 {
 	int		i;

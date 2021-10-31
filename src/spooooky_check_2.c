@@ -6,12 +6,13 @@
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 19:39:13 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/10/31 20:10:54 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/10/31 22:12:30 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/spooooky_lib.h"
 
+//Here we check if there are any duplicate numbers in a sigle row or colum
 int	ft_check_duplicity_h(t_map *map_v, int i, int j)
 {
 	int	k;
