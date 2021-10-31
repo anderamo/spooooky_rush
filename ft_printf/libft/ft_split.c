@@ -6,82 +6,95 @@
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 11:02:38 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/10/05 09:02:19 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/10/31 22:00:29 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_create_fill_array(char const *s, char c,
-								char **array, size_t array_size)
+static char	**ft_frlloc(char **tab)
 {
-	char	*string;
-	size_t	string_size;
-	size_t	array_row;
-	size_t	i;
+	int	i;
 
 	i = 0;
-	string_size = 0;
-	array_row = 0;
-	while (array_size > array_row)
+	while (tab[i])
 	{
-		while (s[i] != c)
-		{
-			i++;
-			string_size++;
-		}
-		if (string_size > 0)
-		{
-			string = ft_calloc(string_size + 1, sizeof(char ));
-			ft_memcpy(string, s + i - string_size, string_size);
-			array[array_row] = string;
-			array_row++;
-			string_size = 0;
-		}
+		free(tab[i]);
 		i++;
 	}
+	free(tab);
+	return (NULL);
 }
 
-static size_t	ft_get_array_row(char const *s, char c)
+static int	ft_strc(const char *str, char c)
 {
-	size_t	i;
-	size_t	count;
-	size_t	size;
+	int	i;
 
 	i = 0;
-	count = 0;
-	size = 0;
+	while (str[i] != c && str[i])
+		i++;
+	return (i);
+}
+
+static int	ft_tab_len(const char *s, char c)
+{
+	int	i;
+	int	row;
+
+	row = 0;
+	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
-		{
-			if (size != 0)
-				count++;
-			size = 0;
-		}
-		else
-			size++;
-		i++;
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i] != c && s[i] != 0)
+			row++;
+		while (s[i] != c && s[i])
+			i++;
 	}
-	if (size != 0)
-		size = 1;
-	else
-		size = 0;
-	return (count + size);
+	return (row);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**ft_handle_tab(const char *str, char c, char **tab, int k)
 {
-	size_t		array_row;
-	char		**array;
+	int	j;
+	int	i;
+	int	x;
+
+	i = 0;
+	j = 0;
+	while (str[i] && j < k)
+	{
+		while (str[i] && str[i] == c)
+			i++;
+		if (str[i] != c)
+		{
+			x = ft_strc(str + i, c);
+			tab[j] = ft_substr(str, i, x);
+			if (tab[j] == NULL)
+				return (ft_frlloc(tab));
+			j++;
+			tab[j] = NULL;
+		}
+		while (str[i] && str[i] != c)
+			i++;
+	}
+	return (tab);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	int		j;
+	char	**tab;
 
 	if (!s)
 		return (NULL);
-	array_row = ft_get_array_row(s, c);
-	array = malloc((array_row + 1) * sizeof(char *));
-	if (!array)
+	j = ft_tab_len(s, c);
+	tab = (char **)malloc((j + 1) * (sizeof(char *)));
+	if (!tab)
 		return (NULL);
-	ft_create_fill_array(s, c, array, array_row);
-	array[array_row] = NULL;
-	return (array);
+	tab[j] = NULL;
+	if (!j)
+		return (tab);
+	return (ft_handle_tab(s, c, tab, j));
 }

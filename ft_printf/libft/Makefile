@@ -77,6 +77,7 @@ bonus:	${NAME}	${OBJS_1}
 all: ${NAME}
 
 clean:
+		rm -rf *.o
 		${RM} ${OBJS} ${OBJS_1}
 
 fclean:	clean
