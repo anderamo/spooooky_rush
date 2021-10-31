@@ -34,13 +34,13 @@ FLAGS	= -c -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJ) $(SRCS)
-		$(MAKE) re -C ./libft
+		$(MAKE) -C ./libft
 		cp libft/libft.a $(NAME)
 		$(CC) $(FLAGS) $(INC) $(MANDATORY) $(SRC)
 		ar -rcs $(NAME) $(SRCS) $(OBJ)
 
 bonus: $(OBJ_1) $(SRCS)
-		$(MAKE) re -C ./libft
+		$(MAKE) -C ./libft
 		cp libft/libft.a $(NAME)
 		$(CC) $(FLAGS) $(INC) $(BONUS) $(SRC)
 		ar -rcs $(NAME) $(OBJ_1) $(SRCS)
